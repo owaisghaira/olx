@@ -1,9 +1,8 @@
 import React from 'react';
 import imagesLogo from '../images/olx.webp'
-import '../../src/App.css';
+import './header.css';
 import '../css/font-awesome.min.css'
-
-
+import { Link } from 'react-router-dom' 
 
 class Logo extends React.Component {
     render() {
@@ -17,9 +16,9 @@ class Logo extends React.Component {
 class Header extends React.Component {
     render() {
         return (
-            <div className="text-center bg-light p-2">
+            <div className="container-fluid shadow-lg text-center bg-light p-2">
                
-                    <div className="row">
+                    <div className="row ">
                         <div className="col-lg-1">
                             <Logo />
                         </div>
@@ -39,7 +38,7 @@ class Header extends React.Component {
                             <i class="fa fa-bell-o " aria-hidden="true"></i>
                             <i class="fa fa-user-circle-o " aria-hidden="true"></i>
                             <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                            <button id="nav-btn" className="font-weight-bold">+ SELL</button>
+                           <Link to='/post'> <button id="nav-btn" className="font-weight-bold">+ SELL</button> </Link> 
                         </div>
                     </div>
                

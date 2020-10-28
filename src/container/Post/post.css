@@ -1,0 +1,11 @@
+.row i{
+    font-size: 25px !important
+    
+}
+li{
+    cursor: pointer !important;
+    color: #6b8286 !important
+}
+.dark{
+    color: #6b8286 !important
+}
