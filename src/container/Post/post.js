@@ -4,6 +4,12 @@ import imagesLogo from './../../images/olx.webp'
 import './post.css';
 
 class Post extends React.Component {
+  constructor(){
+    super()
+  }
+setCondition = (e)=>{
+    console.log(e)
+}
   render() {
     return (
       <div>
@@ -13,9 +19,9 @@ class Post extends React.Component {
           {/* ////////////////// */}
         </div>
         <div >
-          <h1 className='text-center pt-2 font-weight-bold'>POST YOUR AD</h1>
+          <h3 className='text-center pt-2 font-weight-bold'>POST YOUR AD</h3>
           <div className="container card h-100" style={{ width: '50rem' }}>
-            <h1>CHOOSE A CATEGORY</h1>
+            <h3 className= 'mt-3 mb-0'>CHOOSE A CATEGORY</h3>
             <div className="card-body pl-0 ml-0">
               <div className='row'>
                 <div className='col-lg-6'>
@@ -40,7 +46,7 @@ class Post extends React.Component {
                             </span>
                             <div className="dropdown-menu">
                              
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span className='dark'>Tablet</span> </Link></div>
+                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={()=>{this.setCondition("Mobile / Tablet")}} className='dark'>Tablet</span> </Link></div>
                               <div className='text-center list-group-item-action'><Link to="/post/attributes"><span className='dark'>Accessories</span> </Link></div>
                               <div className='text-center list-group-item-action'><Link to="/post/attributes"><span className='dark'>Mobile Phones</span> </Link></div>
                            
