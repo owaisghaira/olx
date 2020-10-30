@@ -44,6 +44,7 @@ class Attributes extends React.Component {
         let { page } = this.state
         console.log('props',this.props)
         page = this.props.pagedata[0]
+        console.log(page)
         return (
             <div>
                 <div className='container-fluid shadow-sm bg-light p-2'>

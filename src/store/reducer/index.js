@@ -1,6 +1,21 @@
 const INTITIAL_STATE = {
     pagedata: [],
-    adData: [{}]
+    adData: [
+        // {
+        //     discript: 'Mint Condition',
+        //     rupees: '14000',
+        //     make: 'Samsung',
+        //     stat: 'karachi',
+        //     adtitle: 's7 edge'
+        // },
+        // {
+        //     discript: 'Mint Condition',
+        //     rupees: '14000',
+        //     make: 'Samsung',
+        //     stat: 'karachi',
+        //     adtitle: 's7 edge'
+        // }
+    ]
 }
 
 
