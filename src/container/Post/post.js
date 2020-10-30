@@ -6,10 +6,10 @@ import { set_data } from '../../store/action';
 import './post.css';
 
 class Post extends React.Component {
-  constructor(){
-    super()
+  // constructor(){
+  //   super()
 
-  }
+  // }
 
   render() {
     return (
@@ -49,7 +49,7 @@ class Post extends React.Component {
                              
                               <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick = {()=> this.props.set_data({page:'Mobile / Tablets'})} className='dark'>Tablet</span> </Link></div>
                               <div className='text-center list-group-item-action'><Link to="/post/attributes"><span  onClick = {()=> this.props.set_data({page:'Mobile / Accessories'})} className='dark'>Accessories</span> </Link></div>
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span  onClick = {()=> this.props.set_data({page:'Mobile / Mobile'})} className='dark'>Mobile Phones</span> </Link></div>
+                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span  onClick = {()=> this.props.set_data({page:'Mobile / Mobile Phones'})} className='dark'>Mobile Phones</span> </Link></div>
                            
                             </div>
                           </div>
