@@ -2,15 +2,20 @@ import React from 'react'
 import imagesLogo from './../../images/olx.webp'
 import { Link } from "react-router-dom";
 import './attribute.css'
+import { connect } from 'react-redux';
 
 
 class Attributes extends React.Component {
     constructor() {
-        super()
+        super();
+        this.state = {
+        }
 
     }
 
     render() {
+        let { page } = this.state
+        page = this .props.pagedata[0]
         return (
             <div>
                 <div className='container-fluid shadow-sm bg-light p-2'>
@@ -22,6 +27,8 @@ class Attributes extends React.Component {
                     <div className="container card my-4" style={{ width: '50rem' }}>
                         <div className='card-header bg-white p-0 mt-2'>
                             <h4>SELECTED CETEGORIES</h4>
+                            <h5> {!page && 'Plz Select Categories' } </h5>
+                            <h5> {page && page.page} </h5>
                         </div>
 
                         <div className='container'>
@@ -78,4 +85,12 @@ class Attributes extends React.Component {
     }
 }
 
-export default Attributes;
+const mapStateToProps = (state) => ({
+    pagedata : state.pagedata
+    // user : "owais"
+})
+// const mapDispatchToProps = (dispatch) => ({
+//     set_data:(data)=> dispatch(set_data(data))
+// })
+
+export default connect(mapStateToProps,null)(Attributes);

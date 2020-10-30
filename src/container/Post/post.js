@@ -1,15 +1,16 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import imagesLogo from './../../images/olx.webp'
+import { connect } from 'react-redux';
+import { set_data } from '../../store/action';
 import './post.css';
 
 class Post extends React.Component {
   constructor(){
     super()
+
   }
-setCondition = (e)=>{
-    console.log(e)
-}
+
   render() {
     return (
       <div>
@@ -46,12 +47,13 @@ setCondition = (e)=>{
                             </span>
                             <div className="dropdown-menu">
                              
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={()=>{this.setCondition("Mobile / Tablet")}} className='dark'>Tablet</span> </Link></div>
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span className='dark'>Accessories</span> </Link></div>
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span className='dark'>Mobile Phones</span> </Link></div>
+                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick = {()=> this.props.set_data({page:'Mobile / Tablets'})} className='dark'>Tablet</span> </Link></div>
+                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span  onClick = {()=> this.props.set_data({page:'Mobile / Accessories'})} className='dark'>Accessories</span> </Link></div>
+                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span  onClick = {()=> this.props.set_data({page:'Mobile / Mobile'})} className='dark'>Mobile Phones</span> </Link></div>
                            
                             </div>
                           </div>
+
                         </div>
 
                       </div>
@@ -97,4 +99,12 @@ setCondition = (e)=>{
 
 
 
-export default Post;
+const mapStateToProps = (state) => ({
+  pagedata : state.pagedata
+  // user : "owais"
+})
+const mapDispatchToProps = (dispatch) => ({
+  set_data:(data)=> dispatch(set_data(data))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Post);

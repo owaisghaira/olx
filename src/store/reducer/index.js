@@ -1,14 +1,5 @@
 const INTITIAL_STATE = {
-    users : [
-        {
-        name : "Sarim",
-        email: "sarim@gmail.com"
-    },
-    {
-        name:'owais',
-        email:'owais@gmail.com'
-    }
-]
+    pagedata : []
 }
 
 
@@ -18,7 +9,7 @@ export default (state = INTITIAL_STATE,action) => {
         case "SETDATA":
             return({
                 ...state,
-                users:[...state.users,action.data]
+                pagedata:[action.data]
             })
     }
     return state;

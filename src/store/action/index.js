@@ -1,7 +1,7 @@
 
 const set_data = (data)=>{
     return(dispatch)=>{
-        console.log(data)
+        // console.log(data)
         dispatch({type:"SETDATA",data:data})
         
     }
