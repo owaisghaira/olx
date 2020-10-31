@@ -1,6 +1,6 @@
 import React from 'react';  
 import './App.css';
-import Header from './components/header.jsx'
+// import Header from './components/header.jsx'
 import Approuter from './config/router'
 
 

@@ -36,9 +36,9 @@ class Header extends React.Component {
                         </div>
                         <div id="icons" className="col-lg-4 ">
                             <i className="fa fa-comment-o " aria-hidden="true"></i>
-                            <i class="fa fa-bell-o " aria-hidden="true"></i>
-                            <i class="fa fa-user-circle-o " aria-hidden="true"></i>
-                            <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                            <i className="fa fa-bell-o " aria-hidden="true"></i>
+                            <i className="fa fa-user-circle-o " aria-hidden="true"></i>
+                            <i className="fa fa-chevron-down" aria-hidden="true"></i>
                            <Link to='/post'> <button id="nav-btn" className="font-weight-bold">+ SELL</button> </Link> 
                         </div>
                     </div>

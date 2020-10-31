@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import './attribute.css'
 import { connect } from 'react-redux';
 import { adds_data } from './../../store/action';
+import firebase from './../../config/firebase'
 
 
 class Attributes extends React.Component {
@@ -34,15 +35,26 @@ class Attributes extends React.Component {
         })
     }
     postAdd = () => {
-        // console.log('state',this.state.adds)
-       
-        this.props.adds_data(this.state.adds) 
-        
+        // let addKey = firebase.database().ref('addpost').push().key
+        let { page } = this.state
+        page = this.props.pagedata[0]
+        let adds = this.state.adds
+        console.log(adds)
+        firebase.database().ref(page.page).push(adds)
+
+
+
+
+
+        // console.log(page.page)
+        // console.log('props', this.props)
+        ///////  adding data in redux //////////
+        // this.props.adds_data(this.state.adds)
     }
 
     render() {
         let { page } = this.state
-        console.log('props',this.props)
+        console.log('props', this.props)
         page = this.props.pagedata[0]
         console.log(page)
         return (
