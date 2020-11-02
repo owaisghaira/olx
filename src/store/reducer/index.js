@@ -20,7 +20,7 @@ const INTITIAL_STATE = {
 
 
 export default (state = INTITIAL_STATE, action) => {
-    console.log("ACTION", action)
+    // console.log("ACTION==>", action)
     switch (action.type) {
         case "SETDATA":
             return ({
@@ -28,10 +28,12 @@ export default (state = INTITIAL_STATE, action) => {
                 pagedata: [action.data]
             })
         case "ADDATA":
+            // console.log("state==>", action.data)
             return ({
                 ...state,
-                adData: [...state.adData, action.data]
+                adData: action.payload
             })
+        default:
     }
     return state;
 }

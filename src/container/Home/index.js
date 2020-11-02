@@ -4,29 +4,30 @@ import Header from './../../components/header'
 import Back from './../../images/olx.jpg'
 import Adds from './../../components/Adds/index'
 import { connect } from 'react-redux';
+import firebase from './../../config/firebase';
+import { adds_data } from './../../store/action';
+
 
 
 class Home extends React.Component {
-  constructor() {
-    super()
+  static getDerivedStateFromProps(props, state) {
+    console.log("home props==>", props.adData)
+    return {
 
-    this.state = {
-
-      // data: false
     }
-
   }
-  // get_add = () => {
-  //   this.setState({
-  //     data: true
-  //   })
-  // }
+ 
+  componentDidMount() {
+    this.props.adds_data()
+  }
   render() {
-  
-      let { page } = this.state
-        console.log('props',this.props)
-        page = this.props.adData[0]
-        console.log(page)
+
+    let { page } = this.state
+    // console.log('props==>', this.props.adData)
+    page = this.props.adData[0]
+    // console.log(page)
+
+
 
     return (
       <div>
@@ -54,13 +55,13 @@ class Home extends React.Component {
 
 
 
-            {page && this.props.adData.map((v,i)=>{
-                return <div className='col-lg-3 col-md-4'>  <Adds key={i} price={v.rupees} /> </div>
-              })}
-              {/* {!page && ''}
+            {this.props.adData.map((v, i) => {
+              return <div className='col-lg-3 col-md-4'>  <Adds key={i} price={v.rupees} /> </div>
+            })}
+            {/* {!page && ''}
               {page && <Adds price={this.props.adData[0].rupees} />} */}
-              
-          
+
+
             {/* <div className='col-lg-3 col-md-4'>
               {page && this.props.adData.map((v,i)=>{
                 return  <Adds key={i} price={v.rupees} />
@@ -69,10 +70,10 @@ class Home extends React.Component {
 
             </div> */}
             {/* <div className='col-lg-3 col-md-4'> */}
-              {/* {this.state.data && this.state.data.map((v,i)=>{
+            {/* {this.state.data && this.state.data.map((v,i)=>{
                 return  <Adds key={i} price={v.rupees} />
               })} */}
-              {/* <button onClick={this.get_add}>add</button> */}
+            {/* <button onClick={this.get_add}>add</button> */}
 
             {/* </div> */}
 
@@ -87,6 +88,9 @@ const mapStateToProps = (state) => ({
   adData: state.adData
   // user : "owais"
 })
+const mapDispatchToProps = (dispatch) => ({
+  adds_data: (data) => dispatch(adds_data(data))
+})
 
 
-export default connect(mapStateToProps, null)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
