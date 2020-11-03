@@ -1,5 +1,6 @@
 const INTITIAL_STATE = {
     pagedata: [],
+    adDetail:[],
     adData: [
         // {
         //     discript: 'Mint Condition',
@@ -32,6 +33,12 @@ export default (state = INTITIAL_STATE, action) => {
             return ({
                 ...state,
                 adData: action.payload
+            })
+        case "ADDETAIL":
+            // console.log("state==>", action.data)
+            return ({
+                ...state,
+                adDetail: action.payload
             })
         default:
     }

@@ -1,10 +1,34 @@
-import firebase from './../../config/firebase';
+// import firebase from './../../config/firebase';
+import firebase from 'firebase';
 
+const fb_login = () => {
+    console.log('chal raha he ')
+
+    return (dispatch) => {
+        var provider = new firebase.auth.FacebookAuthProvider();
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            var token = result.credential.accessToken;
+            var user = result.user;
+            console.log(user)
+        }).catch(function (error) {
+            console.log(error)
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            console.log(errorMessage)
+        });
+    }
+}
 
 const set_data = (data) => {
     return (dispatch) => {
-        // console.log(data)
         dispatch({ type: "SETDATA", data: data })
+
+    }
+}
+const addDtail = (data) => {
+    return (dispatch) => {
+        // console.log(data)
+        dispatch({ type: "ADDETAIL", payload: data })
 
     }
 }
@@ -25,5 +49,7 @@ const adds_data = (Data) => {
 }
 export {
     set_data,
-    adds_data
+    adds_data,
+    addDtail,
+    fb_login
 }

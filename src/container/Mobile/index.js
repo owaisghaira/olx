@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 // import firebase from './../../config/firebase';
 import { adds_data } from './../../store/action';
 import Adds from './../../components/Adds/index'
+import { Link } from "react-router-dom";
 
 
 class Mobile extends React.Component {
@@ -16,7 +17,11 @@ class Mobile extends React.Component {
         <Linkcomponent />
         <div className='row mt-3'>
           {this.props.adData.map((v, i) => {
-            return <div className='col-lg-3 col-md-4'>  <Adds key={i} price={v.rupees} /> </div>
+            return <div className='col-lg-3  col-md-4'>
+              <Link className='text-decoration-none text-dark' to='/adds_details'>
+                <Adds key={i} price={v.rupees} />
+              </Link>
+            </div>
           })}
         </div>
       </div>

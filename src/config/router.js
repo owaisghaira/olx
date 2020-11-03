@@ -11,7 +11,7 @@ import Tablets from "./../container/Tablets"
 import Tv from "./../container/Tv"
 import Post from './../container/Post/post'
 import Attributes from './../container/attributes/attributes'
-
+import Adds_details from './../container/adds_details/adds_details'
 
 
 class Approuter extends React.Component{
@@ -28,6 +28,7 @@ class Approuter extends React.Component{
                 <Route exact path='/land' component={Land}/>
                 <Route exact path='/post' component={Post}/>
                 <Route exact path='/post/attributes' component={Attributes}/>
+                <Route exact path='/Adds_details' component={Adds_details}/>
             </Router>
         )
     }

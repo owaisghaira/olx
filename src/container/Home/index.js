@@ -6,6 +6,8 @@ import Adds from './../../components/Adds/index'
 import { connect } from 'react-redux';
 import firebase from './../../config/firebase';
 import { adds_data } from './../../store/action';
+import { addDtail } from './../../store/action';
+import { Link } from "react-router-dom";
 
 
 
@@ -16,7 +18,7 @@ class Home extends React.Component {
 
     }
   }
- 
+
   componentDidMount() {
     this.props.adds_data()
   }
@@ -39,7 +41,8 @@ class Home extends React.Component {
           <h2 className='pb-3'>Fresh recommendations</h2>
           <div className='row mt-3'>
             <div className='col-lg-3 col-md-4'>
-              <Adds price='RS:12,000' img="" />
+
+              <Link className='text-decoration-none text-dark' to='/adds_details'> <Adds price='RS:12,000' img="" /> </Link>
             </div>
             <div className='col-lg-3 col-md-4'>
               <Adds price='RS:1,000' />
@@ -56,7 +59,11 @@ class Home extends React.Component {
 
 
             {this.props.adData.map((v, i) => {
-              return <div className='col-lg-3 col-md-4'>  <Adds key={i} price={v.rupees} /> </div>
+              return <div className='col-lg-3  col-md-4'>
+                <Link  onClick={() => this.props.addDtail({ name : v.rupees, discript:v. discript})}  className='text-decoration-none text-dark' to='/adds_details'>
+                  <Adds key={i} price={v.rupees} />
+                </Link>
+              </div>
             })}
             {/* {!page && ''}
               {page && <Adds price={this.props.adData[0].rupees} />} */}
@@ -89,7 +96,8 @@ const mapStateToProps = (state) => ({
   // user : "owais"
 })
 const mapDispatchToProps = (dispatch) => ({
-  adds_data: (data) => dispatch(adds_data(data))
+  adds_data: (data) => dispatch(adds_data(data)),
+  addDtail: (data) => dispatch(addDtail(data))
 })
 
 
