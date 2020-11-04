@@ -18,6 +18,7 @@ class Logo extends React.Component {
 }
 class Header extends React.Component {
     render() {
+        let current_user = this.props.current_user
         return (
             <div className="container-fluid shadow-lg text-center bg-light p-2">
 
@@ -35,9 +36,20 @@ class Header extends React.Component {
                         <input id="search" type="text" />
                     </div>
                     <div id="icons" className="col-lg-4 ">
-
-                        <i className="fa fa-comment-o " aria-hidden="true"></i>
-                        <i onClick={() => this.props.fb_login()} className="fa fa-user-circle-o btn " aria-hidden="true"></i>
+                        {current_user.name ?
+                            <span>
+                                <i className="fa fa-comment-o " aria-hidden="true"></i>
+                                <img className='img-circle ml-2 rounded-circle' width='40' src={current_user.profilepic} alt="" />
+                                <span className="dropdown btn show">
+                                    <span className="  dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-hidden="true"></span>
+                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a className="dropdown-item" href="#">LogOut</a>
+                                    </div>
+                                </span>
+                            </span>
+                            :
+                            <p className='font-weight-bold btn ' onClick={() => this.props.fb_login()}> Login</p>
+                        }
                         <Link to='/post'> <button id="nav-btn" className="font-weight-bold shadow">+ SELL</button> </Link>
                     </div>
                 </div>
@@ -48,7 +60,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-
+    current_user: state.current_user
 })
 const mapDispatchToProps = (dispatch) => ({
     fb_login: () => dispatch(fb_login())

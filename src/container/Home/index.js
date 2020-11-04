@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 
 class Home extends React.Component {
   static getDerivedStateFromProps(props, state) {
-    console.log("home props==>", props.adData)
     return {
 
     }
@@ -60,7 +59,7 @@ class Home extends React.Component {
 
             {this.props.adData.map((v, i) => {
               return <div className='col-lg-3  col-md-4'>
-                <Link  onClick={() => this.props.addDtail({ name : v.rupees, discript:v. discript})}  className='text-decoration-none text-dark' to='/adds_details'>
+                <Link onClick={() => this.props.addDtail({ name: v.rupees, discript: v.discript })} className='text-decoration-none text-dark' to='/adds_details'>
                   <Adds key={i} price={v.rupees} />
                 </Link>
               </div>
