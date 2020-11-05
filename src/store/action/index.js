@@ -26,7 +26,20 @@ const fb_login = () => {
     }
 }
 
+const fb_out = () => {
+    return (dispatch) => {
+        let user_out = {}
+        firebase.auth().signOut()
+            .then(() => {
+                alert('Logout successfull')
+                dispatch({ type: 'USERADD', payload: user_out })
 
+            })
+            .catch(error => {
+                console.log(error)
+            });
+    }
+}
 
 const set_data = (data) => {
     return (dispatch) => {
@@ -56,5 +69,6 @@ export {
     set_data,
     adds_data,
     addDtail,
-    fb_login
+    fb_login,
+    fb_out
 }

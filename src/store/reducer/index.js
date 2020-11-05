@@ -28,6 +28,11 @@ export default (state = INTITIAL_STATE, action) => {
                 ...state,
                 current_user: action.payload
             })
+            case "USEROUT":
+                return ({
+                    ...state,
+                    current_user: action.payload
+                })
         default:
     }
     return state;

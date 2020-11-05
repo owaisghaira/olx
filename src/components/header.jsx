@@ -4,10 +4,11 @@ import './header.css';
 import '../css/font-awesome.min.css'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fb_login } from './../store/action'
-
+import { fb_login, fb_out } from './../store/action'
+import Addmodal from './showmodal'
 
 class Logo extends React.Component {
+
     render() {
         return (
             <div>
@@ -17,7 +18,15 @@ class Logo extends React.Component {
     }
 }
 class Header extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            addModalShow: false
+        }
+    }
     render() {
+        let addModalClose = () => this.setState({ addModalShow: false })
+        console.log(this.props.current_user)
         let current_user = this.props.current_user
         return (
             <div className="container-fluid shadow-lg text-center bg-light p-2">
@@ -43,18 +52,24 @@ class Header extends React.Component {
                                 <span className="dropdown btn show">
                                     <span className="  dropdown-toggle" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-hidden="true"></span>
                                     <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <a className="dropdown-item" href="#">LogOut</a>
+                                        <a onClick={() => this.props.fb_out()} className="dropdown-item">LogOut</a>
                                     </div>
                                 </span>
                             </span>
                             :
-                            <p className='font-weight-bold btn ' onClick={() => this.props.fb_login()}> Login</p>
+                            <p className='font-weight-bold btn mb-0' onClick={() => this.props.fb_login()}> Login</p>
                         }
-                        <Link to='/post'> <button id="nav-btn" className="font-weight-bold shadow">+ SELL</button> </Link>
+                        {current_user.name ?
+                            < Link to='/post'> <button id="nav-btn" className="font-weight-bold shadow">+ SELL</button> </Link>
+                            :
+                            <button id="nav-btn" onClick={() => this.setState({ addModalShow: true })} className="font-weight-bold text-decoration-none shadow">+ SELL</button>
+                        }
+                        <Addmodal show={this.state.addModalShow} onHide={addModalClose} />
                     </div>
+
                 </div>
 
-            </div>
+            </div >
         )
     }
 }
@@ -63,7 +78,8 @@ const mapStateToProps = (state) => ({
     current_user: state.current_user
 })
 const mapDispatchToProps = (dispatch) => ({
-    fb_login: () => dispatch(fb_login())
+    fb_login: () => dispatch(fb_login()),
+    fb_out: () => dispatch(fb_out())
 })
 
 

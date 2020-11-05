@@ -9,7 +9,6 @@ import add2 from './../../images/add2.png'
 
 
 
-
 class Adds_details extends React.Component {
     render() {
         console.log(this.props.adDetail)
