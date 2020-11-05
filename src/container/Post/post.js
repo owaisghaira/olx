@@ -28,66 +28,141 @@ class Post extends React.Component {
                 <div className='col-lg-6'>
                   <ul className='pl-0'>
 
-                    <li className="list-group-item list-group-item-action">
-                      <div className="row">
-
-                        <div className="col-lg-2">
-                          <i className="fa fa-mobile " aria-hidden="true"></i>
-                        </div>
-
-                        <div className="col-lg-8">
-                          Mobile
-                         </div>
-
-                        <div className="col-lg-2">
-                          <div className='dropright'>
-
-                            <span className data-toggle="dropdown">
+                    <Link to="/post/attributes">
+                      <li onClick={() => this.props.set_data({ page: "Mobile" })} className="list-group-item list-group-item-action">
+                        <div className="row ">
+                          <div className="col-lg-2">
+                            <i className="fa fa-mobile " aria-hidden="true"></i>
+                          </div>
+                          <div className="col-lg-8">
+                            <div className='text-center dark list-group-item-action'>Mobile</div>
+                          </div>
+                          <div className="col-lg-2">
+                            <div className='dropright'>
                               <i class="fa fa-angle-right" aria-hidden="true"></i>
+                              {/* <span className data-toggle="dropdown">
                             </span>
                             <div className="dropdown-menu">
-
                               <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={() => this.props.set_data({ page: "Mobile" })} className='dark'>Tablet</span> </Link></div>
                               <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={() => this.props.set_data({ page: "Mobile" })} className='dark'>Accessories</span> </Link></div>
                               <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={() => this.props.set_data({ page: "Mobile" })} className='dark'>Mobile Phones</span> </Link></div>
-
+                            </div> */}
                             </div>
                           </div>
-
                         </div>
+                      </li>
+                    </Link>
 
-                      </div>
-                    </li>
-                    <li className="list-group-item list-group-item-action">
-                      <div className="row">
-
-                        <div className="col-lg-2">
-                          <i className="fa fa-mobile " aria-hidden="true"></i>
-                        </div>
-
-                        <div className="col-lg-8">
-                          Animals
-                         </div>
-
-                        <div className="col-lg-2">
-                          <div className='dropright'>
-
-                            <span className data-toggle="dropdown">
+                    <Link to="/post/attributes">
+                      <li onClick={() => this.props.set_data({ page: "Car" })} className="list-group-item list-group-item-action">
+                        <div className="row ">
+                          <div className="col-lg-2">
+                            <i className="fa fa-mobile " aria-hidden="true"></i>
+                          </div>
+                          <div className="col-lg-8">
+                            <div className='text-center dark list-group-item-action'>Car</div>
+                          </div>
+                          <div className="col-lg-2">
+                            <div className='dropright'>
                               <i class="fa fa-angle-right" aria-hidden="true"></i>
-                            </span>
-                            <div className="dropdown-menu">
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </Link>
 
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={() => this.props.set_data({ page: "Animals" })} className='dark'>Birds</span> </Link></div>
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={() => this.props.set_data({ page: "Animals" })} className='dark'>Cats</span> </Link></div>
-                              <div className='text-center list-group-item-action'><Link to="/post/attributes"><span onClick={() => this.props.set_data({ page: "Animals" })} className='dark'>Dogs</span> </Link></div>
+                    <Link to="/post/attributes">
+                      <li onClick={() => this.props.set_data({ page: "Motorcycles" })} className="list-group-item list-group-item-action">
+                        <div className="row ">
+                          <div className="col-lg-2">
+                            <i className="fa fa-mobile " aria-hidden="true"></i>
+                          </div>
+                          <div className="col-lg-8">
+                            <div className='text-center dark list-group-item-action'>Motorcycles</div>
+                          </div>
+                          <div className="col-lg-2">
+                            <div className='dropright'>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
 
                             </div>
                           </div>
-
                         </div>
+                      </li>
+                    </Link>
 
-                      </div>
-                    </li>
+                    <Link to="/post/attributes">
+                      <li onClick={() => this.props.set_data({ page: "Houses" })} className="list-group-item list-group-item-action">
+                        <div className="row ">
+                          <div className="col-lg-2">
+                            <i className="fa fa-mobile " aria-hidden="true"></i>
+                          </div>
+                          <div className="col-lg-8">
+                            <div className='text-center dark list-group-item-action'>Houses</div>
+                          </div>
+                          <div className="col-lg-2">
+                            <div className='dropright'>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </Link>
+
+                    <Link to="/post/attributes">
+                      <li onClick={() => this.props.set_data({ page: "Tv-Video-Audio" })} className="list-group-item list-group-item-action">
+                        <div className="row ">
+                          <div className="col-lg-2">
+                            <i className="fa fa-mobile " aria-hidden="true"></i>
+                          </div>
+                          <div className="col-lg-8">
+                            <div className='text-center dark list-group-item-action'>Tv-Video-Audio</div>
+                          </div>
+                          <div className="col-lg-2">
+                            <div className='dropright'>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </Link>
+
+                    <Link to="/post/attributes">
+                      <li onClick={() => this.props.set_data({ page: "Animals" })} className="list-group-item list-group-item-action">
+                        <div className="row ">
+                          <div className="col-lg-2">
+                            <i className="fa fa-mobile " aria-hidden="true"></i>
+                          </div>
+                          <div className="col-lg-8">
+                            <div className='text-center text-decoration-none dark list-group-item-action'>Animals</div>
+                          </div>
+                          <div className="col-lg-2">
+                            <div className='dropright'>
+                              <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </Link>
+
+                    <Link to="/post/attributes">
+                      <li onClick={() => this.props.set_data({ page: "Land & Plots" })} className="list-group-item list-group-item-action">
+                        <div className="row ">
+                          <div className="col-lg-2">
+                            <i className="fa fa-mobile " aria-hidden="true"></i>
+                          </div>
+                          <div className="col-lg-8">
+                            <div className='text-center text-decoration-none dark list-group-item-action'>Land & Plots</div>
+                          </div>
+                          <div className="col-lg-2">
+                            <div className='dropright'>
+                              <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            </div>
+                          </div>
+                        </div>
+                      </li>
+                    </Link>
                   </ul>
                 </div>
                 <div className='col-lg-6'></div>

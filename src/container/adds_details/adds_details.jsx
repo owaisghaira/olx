@@ -11,7 +11,10 @@ import add2 from './../../images/add2.png'
 
 class Adds_details extends React.Component {
     render() {
-        console.log(this.props.adDetail)
+        let addDetails = this.props.adDetail
+        let currentUser = this.props.current_user
+
+        console.log('yaha ', addDetails)
         return (
 
             <div>
@@ -23,20 +26,17 @@ class Adds_details extends React.Component {
                 <div className='row my-5'>
                     <div className='col-lg-8'>
                         <div>
-                            <img className='border rounded mx-2' alt="Responsive image " width='838' height='450' src={add} />
+                            <img className='border rounded mx-2' alt="Responsive image " width='838' height='450' src={addDetails.imageurl} />
                         </div>
                         <div className='mx-2 border rounded'>
                             <h2 className='p-3'>Details</h2>
                             <span className='p-3'>
-                                Condition : New <span className='ml-5 pl-5'> Type : Mobile</span>
+                                Condition : {addDetails.condition} <span className='ml-5 pl-5'> Type : {addDetails.itemtype}</span>
                             </span>
                             <hr />
                             <div className='m-4'>
                                 <h2 >Details</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Repellendus voluptatum quisquam omnis illum ipsam eos tenetur!
-                                Fugiat, eum. Fugiat vel quaerat dolorem assumenda libero illum
-                                perspiciatis repudiandae iusto adipisci quia.</p>
+                                <p>{addDetails.discript}</p>
                             </div>
                         </div>
 
@@ -45,9 +45,9 @@ class Adds_details extends React.Component {
                         <div className='card mb-4'>
 
                             <div className='card-body'>
-                                <h2>RS : 17,200</h2>
-                                <p>samsunhu s7 egdsh</p>
-                                <p>karachi</p>
+                                <h2>RS : {addDetails.rupees}</h2>
+                                <p> {addDetails.adtitle}</p>
+                                <p> {addDetails.stat}</p>
                             </div>
 
                         </div>
@@ -56,8 +56,8 @@ class Adds_details extends React.Component {
                             <div className='card-body'>
                                 <h2>Seller discription</h2>
                                 <p>
-                                    <img src={avatar} width='55' alt="" />
-                                    <span className='pl-2 text-bold'>Owais ghaira</span>
+                                    <img className='rounded-circle' src={currentUser.profilepic} width='55' alt="" />
+                                    <span className='pl-2 text-bold'>{currentUser.name}</span>
                                 </p>
 
                                 <button className='btn btn-dark'>chat with seller</button>
@@ -74,7 +74,7 @@ class Adds_details extends React.Component {
                         </div>
                         <div className='ml-3'>
 
-                           <img src={add2} width='350' alt=""/>
+                            <img src={add2} width='350' alt="" />
 
                         </div>
                     </div>
@@ -90,7 +90,8 @@ class Adds_details extends React.Component {
 
 
 const mapStateToProps = (state) => ({
-    adDetail: state.adDetail
+    adDetail: state.adDetail,
+    current_user: state.current_user
 })
 
 

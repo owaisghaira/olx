@@ -55,10 +55,14 @@ const addDtail = (data) => {
     }
 }
 const adds_data = (Data) => {
+    const categories = ['Mobile', 'Animals']
     let firedata = [];
-    let db = firebase.database().ref('/').child('Mobile');
+    // let db = firebase.database().ref('/').child('Mobile');
     return (dispatch) => {
-        db.on('child_added', data => {
+        firebase.database().ref('/').child('Mobile').on('child_added', data => {
+            firedata.push(data.val())
+        })
+        firebase.database().ref('/').child('Animals').on('child_added', data => {
             firedata.push(data.val())
         })
         dispatch({ type: "ADDATA", payload: firedata })

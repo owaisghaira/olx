@@ -7,7 +7,7 @@ import Car from "./../container/Car"
 // import About from "./../container/about"
 import Houses from "./../container/Houses"
 import Land from "./../container/Land"
-import Tablets from "./../container/Tablets"
+import Animals from "./../container/Animals"
 import Tv from "./../container/Tv"
 import Post from './../container/Post/post'
 import Attributes from './../container/attributes/attributes'
@@ -24,7 +24,7 @@ class Approuter extends React.Component{
                 <Route exact path='/motorcycles' component={Motorcycles}/>
                 <Route exact path='/house' component={Houses}/>
                 <Route exact path='/tv-video-audio' component={Tv}/>
-                <Route exact path='/tablets' component={Tablets}/>
+                <Route exact path='/animals' component={Animals}/>
                 <Route exact path='/land' component={Land}/>
                 <Route exact path='/post' component={Post}/>
                 <Route exact path='/post/attributes' component={Attributes}/>

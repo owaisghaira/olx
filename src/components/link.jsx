@@ -14,7 +14,7 @@ class Linkcomponent extends React.Component {
                     <li><Link className=' text-dark'  to='/motorcycles'>Motorcycles</Link></li>
                     <li><Link className=' text-dark'  to='/house'>Houses</Link></li>
                     <li><Link className=' text-dark'  to='/tv-video-audio'>Tv-Video-Audio</Link></li>
-                    <li><Link className=' text-dark'  to='/tablets'>Tablets</Link></li>
+                    <li><Link className=' text-dark'  to='/animals'>Animals</Link></li>
                     <li><Link className=' text-dark'  to='/land'>Land & Plots</Link></li>
                 </ul>
             </div>

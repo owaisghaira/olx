@@ -1,17 +1,14 @@
 import React from 'react'
-import Linkcomponent from './../../components/link'
-import Header from './../../components/header'
-// import { Link } from "react-router-dom";
-import { connect } from 'react-redux';
-// import firebase from './../../config/firebase';
-import { adds_data } from './../../store/action';
-import Adds from './../../components/Adds/index'
+import Linkcomponent from '../../components/link'
+import Header from '../../components/header'
 import { Link } from "react-router-dom";
-import { addDtail } from './../../store/action';
+import Adds from '../../components/Adds/index'
+import { adds_data } from '../../store/action';
+import { connect } from 'react-redux';
 
 
 
-class Mobile extends React.Component {
+class Tablets extends React.Component {
   render() {
     return (
       <div>
@@ -19,7 +16,7 @@ class Mobile extends React.Component {
         <Linkcomponent />
         <div className='row mt-3'>
           {this.props.adData.map((v, i) => {
-            return v.itemtype == 'Mobile' && <div className='col-lg-3  col-md-4'>
+            return v.itemtype == 'Animals' && <div className='col-lg-3  col-md-4'>
               <Link onClick={() => this.props.addDtail({
                 rupees: v.rupees, discript: v.discript,
                 adtitle: v.adtitle, imageurl: v.imageurl,
@@ -39,14 +36,13 @@ class Mobile extends React.Component {
 
 
 
+
 const mapStateToProps = (state) => ({
   adData: state.adData
 })
 const mapDispatchToProps = (dispatch) => ({
-  adds_data: (data) => dispatch(adds_data(data)),
-  addDtail: (data) => dispatch(addDtail(data))
-
+  adds_data: (data) => dispatch(adds_data(data))
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Mobile);
+export default connect(mapStateToProps, mapDispatchToProps)(Tablets);

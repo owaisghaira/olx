@@ -24,9 +24,8 @@ class Home extends React.Component {
   render() {
 
     let { page } = this.state
-    // console.log('props==>', this.props.adData)
+    console.log('props==>', this.props.adData)
     page = this.props.adData[0]
-    // console.log(page)
 
 
 
@@ -59,29 +58,17 @@ class Home extends React.Component {
 
             {this.props.adData.map((v, i) => {
               return <div className='col-lg-3  col-md-4'>
-                <Link onClick={() => this.props.addDtail({ name: v.rupees, discript: v.discript })} className='text-decoration-none text-dark' to='/adds_details'>
-                  <Adds key={i} price={v.rupees} />
+                <Link onClick={() => this.props.addDtail({
+                  rupees: v.rupees, discript: v.discript,
+                  adtitle: v.adtitle, imageurl: v.imageurl,
+                  make: v.make, condition: v.condition, useruid: v.useruid,
+                  stat: v.stat,itemtype:v.itemtype
+                })}
+                  className='text-decoration-none text-dark' to='/adds_details'>
+                  <Adds key={i} price={v.rupees} pic={v.imageurl} detail={v.adtitle} />
                 </Link>
               </div>
             })}
-            {/* {!page && ''}
-              {page && <Adds price={this.props.adData[0].rupees} />} */}
-
-
-            {/* <div className='col-lg-3 col-md-4'>
-              {page && this.props.adData.map((v,i)=>{
-                return  <Adds key={i} price={v.rupees} />
-              })}
-          
-
-            </div> */}
-            {/* <div className='col-lg-3 col-md-4'> */}
-            {/* {this.state.data && this.state.data.map((v,i)=>{
-                return  <Adds key={i} price={v.rupees} />
-              })} */}
-            {/* <button onClick={this.get_add}>add</button> */}
-
-            {/* </div> */}
 
           </div>
         </div>
@@ -90,9 +77,7 @@ class Home extends React.Component {
   }
 }
 const mapStateToProps = (state) => ({
-  // pagedata: state.pagedata,
   adData: state.adData
-  // user : "owais"
 })
 const mapDispatchToProps = (dispatch) => ({
   adds_data: (data) => dispatch(adds_data(data)),

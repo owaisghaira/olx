@@ -26,7 +26,7 @@ class Header extends React.Component {
     }
     render() {
         let addModalClose = () => this.setState({ addModalShow: false })
-        console.log(this.props.current_user)
+        // console.log(this.props.current_user)
         let current_user = this.props.current_user
         return (
             <div className="container-fluid shadow-lg text-center bg-light p-2">
