@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import add from './../../images/add1.png'
 import avatar from './../../images/avatar.png'
 import add2 from './../../images/add2.png'
+import { Link } from "react-router-dom";
+
 
 
 
@@ -60,7 +62,9 @@ class Adds_details extends React.Component {
                                     <span className='pl-2 text-bold'>{currentUser.name}</span>
                                 </p>
 
-                                <button className='btn btn-dark'>chat with seller</button>
+                                {<Link to='/chat'>   <button className='btn btn-dark'>chat with seller</button></Link>}
+                                {/* {!currentUser.name && <button className='btn btn-dark'>chat with seller</button>} */}
+
                             </div>
 
                         </div>

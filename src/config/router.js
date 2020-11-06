@@ -8,6 +8,7 @@ import Car from "./../container/Car"
 import Houses from "./../container/Houses"
 import Land from "./../container/Land"
 import Animals from "./../container/Animals"
+import ChatBox from "./../container/ChatBox/chat"
 import Tv from "./../container/Tv"
 import Post from './../container/Post/post'
 import Attributes from './../container/attributes/attributes'
@@ -29,6 +30,7 @@ class Approuter extends React.Component{
                 <Route exact path='/post' component={Post}/>
                 <Route exact path='/post/attributes' component={Attributes}/>
                 <Route exact path='/Adds_details' component={Adds_details}/>
+                <Route exact path='/chat' component={ChatBox}/>
             </Router>
         )
     }

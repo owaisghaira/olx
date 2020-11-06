@@ -20,12 +20,12 @@ class Mobile extends React.Component {
         <div className='row mt-3'>
           {this.props.adData.map((v, i) => {
             return v.itemtype == 'Mobile' && <div className='col-lg-3  col-md-4'>
-              <Link onClick={() => this.props.addDtail({
-                rupees: v.rupees, discript: v.discript,
-                adtitle: v.adtitle, imageurl: v.imageurl,
-                make: v.make, condition: v.condition, useruid: v.useruid,
-                stat: v.stat, itemtype: v.itemtype
-              })}
+              <Link onClick={() => this.props.addDtail(v
+                // rupees: v.rupees, discript: v.discript,
+                // adtitle: v.adtitle, imageurl: v.imageurl,
+                // make: v.make, condition: v.condition, useruid: v.useruid,
+                // stat: v.stat, itemtype: v.itemtype
+              )}
                 className='text-decoration-none text-dark' to='/adds_details'>
                 <Adds key={i} price={v.rupees} pic={v.imageurl} detail={v.adtitle} />
               </Link>

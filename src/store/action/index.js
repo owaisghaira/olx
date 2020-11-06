@@ -41,6 +41,19 @@ const fb_out = () => {
     }
 }
 
+const allUsers = () => {
+    return (dispatch) => {
+        let users = []
+        firebase.database().ref('/').child('users').on('child_added', (data) => {
+            users.push(data.val())
+        })
+        dispatch({ type: 'ALLUSERADD', payload: users })
+        // console.log('allusers', users)
+
+
+    }
+}
+
 const set_data = (data) => {
     return (dispatch) => {
         dispatch({ type: "SETDATA", data: data })
@@ -74,5 +87,6 @@ export {
     adds_data,
     addDtail,
     fb_login,
-    fb_out
+    fb_out,
+    allUsers
 }

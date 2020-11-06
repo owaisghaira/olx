@@ -1,0 +1,52 @@
+
+
+.chatbox {
+  height: 93%;
+  margin-top: 20px;
+  box-shadow: 2px 2px gray;
+  padding: 0px;
+}
+.profile-pic {
+  width: 40px;
+  height: 40px;
+}
+.name {
+  font-weight: 400;
+  color: #000;
+}
+.under-name {
+  font-size: 12px;
+}
+.chat-pic {
+  width: 30px;
+  height: 30px;
+}
+.recieve {
+  background-color: lightgray;
+  border-radius: 2rem;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.time {
+  font-size: 12px;
+  color: #9ca1a3;
+  margin-top: 3%;
+  margin-left: 5px;
+}
+.sender {
+  background-color: whitesmoke;
+  border-radius: 2rem;
+  padding: 5px 10px;
+  display: inline-block;
+}
+.cardchat {
+  height: 70vh;
+}
+
+#messages {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+#messageinput{
+    width: 620px !important
+}
