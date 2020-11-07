@@ -26,8 +26,12 @@ class ChatBox extends React.Component {
 
     chat = (user) => {
         this.setState({
+            chats: [],
             chat_user: user
         })
+        // this.setState({
+        //     chat_user: user
+        // })
         let current_user = this.props.current_user
         let chat_user = this.state.chat_user
         let merg_uid = this.uid_merg(current_user.uid, chat_user.uid)
@@ -59,6 +63,7 @@ class ChatBox extends React.Component {
         firebase.database().ref('/').child(`chats/${uid}`).on('child_added', (masseges) => {
             this.state.chats.push(masseges.val())
             this.setState({
+                chats: [],
                 chats: this.state.chats
             })
         })
@@ -70,7 +75,7 @@ class ChatBox extends React.Component {
     }
 
     render() {
-
+        console.log('alllll', this.props.allUsers)
         let current_user = this.props.current_user
         let { chat_user } = this.state
 

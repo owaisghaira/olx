@@ -12,14 +12,23 @@ import { Link } from "react-router-dom";
 
 
 class Home extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      adds: []
+    }
+  }
   static getDerivedStateFromProps(props, state) {
     return {
-
+      adds: props.adData
     }
   }
 
   componentDidMount() {
     this.props.adds_data()
+    this.setState({
+      adds: this.props.adData
+    })
   }
   render() {
 
