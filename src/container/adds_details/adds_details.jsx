@@ -28,7 +28,7 @@ class Adds_details extends React.Component {
                 <div className='row my-5'>
                     <div className='col-lg-8'>
                         <div>
-                            <img className='border rounded mx-2' alt="Responsive image " width='838' height='450' src={addDetails.imageurl} />
+                            <img className='border rounded mx-2 px-5 py-2' alt="Responsive image " width='838' height='450' src={addDetails.imageurl} />
                         </div>
                         <div className='mx-2 border rounded'>
                             <h2 className='p-3'>Details</h2>

@@ -3,7 +3,7 @@ import imagesLogo from './../../images/olx.webp'
 import { Link } from "react-router-dom";
 import './attribute.css'
 import { connect } from 'react-redux';
-import { adds_data } from './../../store/action';
+import { adds_data, image_url } from './../../store/action';
 import firebase from './../../config/firebase'
 
 
@@ -11,8 +11,8 @@ class Attributes extends React.Component {
     constructor() {
         super();
         this.state = {
+            file: null,
             adds: [{}],
-            selectedFile: null,
             discript: '',
             rupees: '',
             make: '',
@@ -56,6 +56,21 @@ class Attributes extends React.Component {
 
         ///////  adding data in redux //////////
         this.props.adds_data(this.state.adds)
+    }
+    imagehandle = () => {
+        let url = ''
+        var ref = firebase.storage().ref().child(`images/${this.state.file.name}`).put(this.state.file)
+        ref.on('state_changed', function (snapshot) {
+        }, function (error) {
+        }, () => {
+            ref.snapshot.ref.getDownloadURL()
+                .then((downloadURL) => {
+                    // console.log('File available at', downloadURL)
+                    url = downloadURL
+                    this.setState({ imageurl: url })
+                });
+
+        })
     }
 
     render() {
@@ -103,8 +118,9 @@ class Attributes extends React.Component {
                             <hr />
 
                             <h4 className='mt-3'>UPLOAD UP TO 12 PHOTOS</h4>
-                            <p>Image URL*</p>
-                            <input required onChange={(e) => { this.discripText(e) }} name='imageurl' className='ml-0' type="text" />
+                            <p>Image*</p>
+                            <input required onChange={(e) => this.setState({ file: e.target.files[0] })} name='file' className='ml-0' type="file" />
+                            <button onClick={() => this.imagehandle()}>send</button>
                             <hr />
 
                             <h4 className='mt-3'>CONFIRM YOUR LOCATION</h4>
@@ -130,7 +146,7 @@ const mapStateToProps = (state) => ({
     loginData: state.current_user
 })
 const mapDispatchToProps = (dispatch) => ({
-    adds_data: (data) => dispatch(adds_data(data))
+    adds_data: (data) => dispatch(adds_data(data)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Attributes);

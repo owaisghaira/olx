@@ -1,9 +1,7 @@
 import React from 'react'
 import Linkcomponent from './../../components/link'
 import Header from './../../components/header'
-// import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-// import firebase from './../../config/firebase';
 import { adds_data } from './../../store/action';
 import Adds from './../../components/Adds/index'
 import { Link } from "react-router-dom";

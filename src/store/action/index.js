@@ -79,6 +79,32 @@ const adds_data = (Data) => {
             firedata.push(data.val())
         })
         dispatch({ type: "ADDATA", payload: firedata })
+        firebase.database().ref('/').child('Car').on('child_added', data => {
+            firedata.push(data.val())
+        })
+        dispatch({ type: "ADDATA", payload: firedata })
+
+        firebase.database().ref('/').child('Motorcycles').on('child_added', data => {
+            firedata.push(data.val())
+        })
+        dispatch({ type: "ADDATA", payload: firedata })
+
+        firebase.database().ref('/').child('Houses').on('child_added', data => {
+            firedata.push(data.val())
+        })
+        dispatch({ type: "ADDATA", payload: firedata })
+
+        firebase.database().ref('/').child('Tv-Video-Audio').on('child_added', data => {
+            firedata.push(data.val())
+        })
+        dispatch({ type: "ADDATA", payload: firedata })
+
+        firebase.database().ref('/').child('Land & Plots').on('child_added', data => {
+            firedata.push(data.val())
+        })
+        dispatch({ type: "ADDATA", payload: firedata })
+
+
 
     }
 }

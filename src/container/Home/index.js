@@ -18,13 +18,13 @@ class Home extends React.Component {
       adds: []
     }
   }
-  static getDerivedStateFromProps(props, state) {
-    return {
-      adds: props.adData
-    }
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   return {
+  //     adds: props.adData
+  //   }
+  // }
 
-  componentDidMount() {
+  componentDidMount = () => {
     this.props.adds_data()
     this.setState({
       adds: this.props.adData
@@ -46,7 +46,7 @@ class Home extends React.Component {
 
         <div className='m-5'>
           <h2 className='pb-3'>Fresh recommendations</h2>
-          <div className='row mt-3'>
+          {/* <div className='row mt-3'>
             <div className='col-lg-3 col-md-4'>
 
               <Link className='text-decoration-none text-dark' to='/adds_details'> <Adds price='RS:12,000' img="" /> </Link>
@@ -60,7 +60,7 @@ class Home extends React.Component {
             <div className='col-lg-3 col-md-4'>
               <Adds price='RS:14,000' />
             </div>
-          </div>
+          </div> */}
           <div className='row mt-3'>
 
 

@@ -1,6 +1,7 @@
 import * as firebase from 'firebase/app';
 import 'firebase/database'
 import 'firebase/auth'
+import 'firebase/storage'
 
 
 var firebaseConfig = {
