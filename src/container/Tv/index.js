@@ -1,7 +1,8 @@
 import React from 'react'
 import Linkcomponent from './../../components/link'
 import Header from './../../components/header'
-// import { Link } from "react-router-dom";
+import Footer from './../../components/footer'
+
 
 
 class Tv extends React.Component {
@@ -10,6 +11,7 @@ class Tv extends React.Component {
       <div>
         <Header/>
         <Linkcomponent/>
+        <Footer/>
       </div>
     );
   }

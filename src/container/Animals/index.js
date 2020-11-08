@@ -6,6 +6,7 @@ import Adds from '../../components/Adds/index'
 import { adds_data } from '../../store/action';
 import { connect } from 'react-redux';
 import { addDtail } from './../../store/action';
+import Footer from './../../components/footer'
 
 
 
@@ -25,6 +26,7 @@ class Tablets extends React.Component {
             </div>
           })}
         </div>
+        <Footer/>
       </div>
     );
   }

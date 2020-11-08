@@ -40,6 +40,8 @@ class Attributes extends React.Component {
                 imageurl: this.state.imageurl,
                 condition: this.state.condition,
                 useruid: this.props.loginData.uid,
+                userpic: this.props.loginData.profilepic,
+                username: this.props.loginData.name,
                 itemtype: this.props.pagedata[0].page
             }
         })

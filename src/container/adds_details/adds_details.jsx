@@ -7,6 +7,7 @@ import add from './../../images/add1.png'
 import avatar from './../../images/avatar.png'
 import add2 from './../../images/add2.png'
 import { Link } from "react-router-dom";
+import Footer from './../../components/footer'
 
 
 
@@ -58,11 +59,11 @@ class Adds_details extends React.Component {
                             <div className='card-body'>
                                 <h2>Seller discription</h2>
                                 <p>
-                                    <img className='rounded-circle' src={currentUser.profilepic} width='55' alt="" />
-                                    <span className='pl-2 text-bold'>{currentUser.name}</span>
+                                    <img className='rounded-circle' src={addDetails.userpic} width='55' alt="" />
+                                    <span className='pl-2 text-bold'>{addDetails.username}</span>
                                 </p>
 
-                                {<Link to='/chat'>   <button className='btn btn-dark'>chat with seller</button></Link>}
+                                {<Link to='/chat'>   <button  className='btn btn-dark'>chat with seller</button></Link>}
                                 {/* {!currentUser.name && <button className='btn btn-dark'>chat with seller</button>} */}
 
                             </div>
@@ -83,7 +84,7 @@ class Adds_details extends React.Component {
                         </div>
                     </div>
                 </div>
-
+            <Footer/>
 
             </div>
 

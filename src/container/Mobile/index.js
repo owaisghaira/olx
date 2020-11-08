@@ -6,6 +6,7 @@ import { adds_data } from './../../store/action';
 import Adds from './../../components/Adds/index'
 import { Link } from "react-router-dom";
 import { addDtail } from './../../store/action';
+import Footer from './../../components/footer'
 
 
 
@@ -30,6 +31,7 @@ class Mobile extends React.Component {
             </div>
           })}
         </div>
+        <Footer/>
       </div>
     );
   }

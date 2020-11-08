@@ -1,6 +1,7 @@
 import React from 'react'
 import Linkcomponent from './../../components/link'
 import Header from './../../components/header'
+import Footer from './../../components/footer'
 import Back from './../../images/olx.jpg'
 import Adds from './../../components/Adds/index'
 import { connect } from 'react-redux';
@@ -76,6 +77,7 @@ class Home extends React.Component {
 
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }

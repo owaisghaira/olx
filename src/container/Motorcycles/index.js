@@ -1,6 +1,7 @@
 import React from 'react'
 import Linkcomponent from './../../components/link'
 import Header from './../../components/header'
+import Footer from './../../components/footer'
 
 
 class Motercycles extends React.Component {
@@ -9,6 +10,7 @@ class Motercycles extends React.Component {
       <div>
         <Header/>
         <Linkcomponent/>
+        <Footer/>
       </div>
     );
   }
