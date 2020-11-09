@@ -17,7 +17,7 @@ class Adds_details extends React.Component {
         let addDetails = this.props.adDetail
         let currentUser = this.props.current_user
 
-        console.log('yaha ', addDetails)
+        // console.log('yaha ', addDetails)
         return (
 
             <div>
@@ -63,7 +63,7 @@ class Adds_details extends React.Component {
                                     <span className='pl-2 text-bold'>{addDetails.username}</span>
                                 </p>
 
-                                {<Link to='/chat'>   <button  className='btn btn-dark'>chat with seller</button></Link>}
+                                {this.props.current_user && <Link to='/chat'>   <button onClick={() => this.props.current_user} className='btn btn-dark' >chat with seller</button></Link>}
                                 {/* {!currentUser.name && <button className='btn btn-dark'>chat with seller</button>} */}
 
                             </div>
@@ -84,7 +84,7 @@ class Adds_details extends React.Component {
                         </div>
                     </div>
                 </div>
-            <Footer/>
+                <Footer />
 
             </div>
 

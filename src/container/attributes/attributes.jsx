@@ -54,22 +54,22 @@ class Attributes extends React.Component {
         console.log(page)
         let adds = this.state.adds
         firebase.database().ref('/').child(page).push(adds)
-        console.log(adds)
+
 
         ///////  adding data in redux //////////
         this.props.adds_data(this.state.adds)
+        alert('post added successfully...')
     }
     imagehandle = () => {
         let url = ''
         var ref = firebase.storage().ref().child(`images/${this.state.file.name}`).put(this.state.file)
-        ref.on('state_changed', function (snapshot) {
-        }, function (error) {
-        }, () => {
+        ref.on('state_changed', function (snapshot) { }, function (error) { }, () => {
             ref.snapshot.ref.getDownloadURL()
                 .then((downloadURL) => {
-                    // console.log('File available at', downloadURL)
+                    console.log('File available at', downloadURL)
                     url = downloadURL
                     this.setState({ imageurl: url })
+                    alert('image added...')
                 });
 
         })

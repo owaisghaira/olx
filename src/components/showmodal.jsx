@@ -26,7 +26,7 @@ class Addmodal extends React.Component {
                     </Modal.Header>
                     <Modal.Body>
                         {this.props.current_user.name ?
-                            <h1>wellcome {this.props.current_user.name}</h1>
+                            <h1>Welcome {this.props.current_user.name}</h1>
 
                             :
                             // <h1>wellcome ${this.props.current_user.name}</h1>

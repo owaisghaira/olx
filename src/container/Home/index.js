@@ -26,15 +26,23 @@ class Home extends React.Component {
   // }
 
   componentDidMount = () => {
-    this.props.adds_data()
-    this.setState({
-      adds: this.props.adData
-    })
+    this.props.adds_data(this.props.history)
+    // .then(() => {
+    //   this.setState({
+    //     adds: this.props.adData
+    //   })
+    // })
   }
+  // shouldComponentUpdate = () => {
+  //   if (this.props.adData){
+  //     return true
+  //   }
+  // }
   render() {
 
     let { page } = this.state
     console.log('props==>', this.props.adData)
+    { this.props.adData && <Link to='/'></Link> }
     page = this.props.adData[0]
 
 
@@ -77,7 +85,8 @@ class Home extends React.Component {
 
           </div>
         </div>
-        <Footer/>
+        <Footer />
+        <Link to='/'></Link>
       </div>
     );
   }
@@ -86,7 +95,7 @@ const mapStateToProps = (state) => ({
   adData: state.adData
 })
 const mapDispatchToProps = (dispatch) => ({
-  adds_data: (data) => dispatch(adds_data(data)),
+  adds_data: (history) => dispatch(adds_data(history)),
   addDtail: (data) => dispatch(addDtail(data))
 })
 

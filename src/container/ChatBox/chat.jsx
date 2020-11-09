@@ -25,6 +25,7 @@ class ChatBox extends React.Component {
     }
 
     chat = (user) => {
+
         this.setState({
             chats: [],
             chat_user: user
@@ -52,10 +53,10 @@ class ChatBox extends React.Component {
         // this.state.chats.push({
         //     message: this.state.message
         // })
-        // this.setState({
-        //     chats:this.state.chats,
-        //     message:''
-        // })
+        this.setState({
+            // chats:this.state.chats,
+            message: ''
+        })
     }
 
     get_messages = (uid) => {
@@ -75,7 +76,6 @@ class ChatBox extends React.Component {
     }
 
     render() {
-        console.log('alllll', this.props.allUsers)
         let current_user = this.props.current_user
         let { chat_user } = this.state
 
@@ -147,9 +147,9 @@ class ChatBox extends React.Component {
                                     </div>
 
                                     <div className="card-body" id="messages">
-                                        <ul>
+                                        <ul className='list-group'>
                                             {this.state.chats.map((v, i) => {
-                                                return <li key={i}>{v.message}</li>
+                                                return <li  key={i}>{v.message}</li>
                                             })}
                                         </ul>
                                     </div>

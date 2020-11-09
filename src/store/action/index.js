@@ -67,7 +67,7 @@ const addDtail = (data) => {
 
     }
 }
-const adds_data = (Data) => {
+const adds_data = () => {
     const categories = ['Mobile', 'Animals']
     let firedata = [];
     // let db = firebase.database().ref('/').child('Mobile');

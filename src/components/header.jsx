@@ -38,11 +38,11 @@ class Header extends React.Component {
                     <div className="col-lg-3 " >
                         <div className="fontuser">
 
-                            <input type="text" placeholder="Enter Username" name="uname" required />
+                            <input type="text" placeholder=" Karachi" name="uname" required />
                         </div>
                     </div>
                     <div className="col-lg-4   ">
-                        <input id="search" type="text" />
+                        <input  placeholder=" Find Car,Mobile & more"  id="search" type="text" />
                     </div>
                     <div id="icons" className="col-lg-4 ">
                         {current_user.name ?
