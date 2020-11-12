@@ -18,7 +18,7 @@ class Mobile extends React.Component {
         <Linkcomponent />
         <div className='row mt-3'>
           {this.props.adData.map((v, i) => {
-            return v.itemtype == 'Mobile' && <div className='col-lg-3  col-md-4'>
+            return v.itemtype === 'Mobile' && <div className='col-lg-3  col-md-4'>
               <Link onClick={() => this.props.addDtail(v
                 // rupees: v.rupees, discript: v.discript,
                 // adtitle: v.adtitle, imageurl: v.imageurl,

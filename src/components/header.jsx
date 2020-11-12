@@ -21,12 +21,36 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            list: ['car', 'mobile', 'motorcycles'],
             addModalShow: false
         }
     }
+    search = (e) => {
+        // console.log(e.target.value)
+        const { list } = this.state
+        const text = e.target.value
+
+        const result = list.filter((item) => {
+            return item.indexOf(text) != -1
+        })
+        // console.log('result....', result[0])
+        if (result.length == 0) {
+            console.log('no data')
+        } else {
+            this.setState({
+                result: result[0]
+            })
+        }
+    }
+    handleResult = () => {
+        let srch = this.state.result
+        if (srch != undefined) {
+            console.log('handel===', this.state.result)
+        }
+    }
+
     render() {
         let addModalClose = () => this.setState({ addModalShow: false })
-        // console.log(this.props.current_user)
         let current_user = this.props.current_user
         return (
             <div className="container-fluid shadow-lg text-center bg-light p-2">
@@ -41,8 +65,9 @@ class Header extends React.Component {
                             <input type="text" placeholder=" Karachi" name="uname" required />
                         </div>
                     </div>
-                    <div className="col-lg-4   ">
-                        <input  placeholder=" Find Car,Mobile & more"  id="search" type="text" />
+                    <div className="col-lg-4 ">
+                        <input placeholder=" Find Car,Mobile & more" onChange={this.search} id="search" type="text" />
+                        <button onClick={this.handleResult}>seach</button>
                     </div>
                     <div id="icons" className="col-lg-4 ">
                         {current_user.name ?
@@ -81,6 +106,5 @@ const mapDispatchToProps = (dispatch) => ({
     fb_login: () => dispatch(fb_login()),
     fb_out: () => dispatch(fb_out())
 })
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

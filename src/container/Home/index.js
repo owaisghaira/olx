@@ -5,7 +5,6 @@ import Footer from './../../components/footer'
 import Back from './../../images/olx.jpg'
 import Adds from './../../components/Adds/index'
 import { connect } from 'react-redux';
-import firebase from './../../config/firebase';
 import { adds_data } from './../../store/action';
 import { addDtail } from './../../store/action';
 import { Link } from "react-router-dom";
@@ -39,11 +38,12 @@ class Home extends React.Component {
   //   }
   // }
   render() {
+    
 
-    let { page } = this.state
-    console.log('props==>', this.props.adData)
-    { this.props.adData && <Link to='/'></Link> }
-    page = this.props.adData[0]
+    // let { page   } = this.state
+    // console.log('props==>', this.props.adData)
+    // { this.props.adData && <Link to='/'></Link> }
+    // page = this.props.adData[0]
 
 
 

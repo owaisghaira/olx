@@ -4,8 +4,8 @@ const fb_login = () => {
     return (dispatch) => {
         var provider = new firebase.auth.FacebookAuthProvider();
         firebase.auth().signInWithPopup(provider).then(function (result) {
-            var token = result.credential.accessToken;
-            var user = result.user;
+            // var token = result.credential.accessToken;
+            let user = result.user;
             let user_login = {
                 name: user.displayName,
                 profilepic: user.photoURL,
@@ -68,7 +68,7 @@ const addDtail = (data) => {
     }
 }
 const adds_data = () => {
-    const categories = ['Mobile', 'Animals']
+    // const categories = ['Mobile', 'Animals']
     let firedata = [];
     // let db = firebase.database().ref('/').child('Mobile');
     return (dispatch) => {
