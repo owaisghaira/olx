@@ -3,7 +3,8 @@ const INTITIAL_STATE = {
     adDetail: [],
     adData: [],
     current_user: [],
-    all_user: []
+    all_user: [],
+    search_key: []
 }
 
 
@@ -38,6 +39,11 @@ export default (state = INTITIAL_STATE, action) => {
             return ({
                 ...state,
                 all_user: action.payload
+            })
+        case "SEARCHDATA":
+            return ({
+                ...state,
+                search_key: action.payload
             })
         default:
     }

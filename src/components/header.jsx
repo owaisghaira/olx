@@ -4,7 +4,7 @@ import './header.css';
 import '../css/font-awesome.min.css'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { fb_login, fb_out } from './../store/action'
+import { fb_login, fb_out, search_key } from './../store/action'
 import Addmodal from './showmodal'
 
 class Logo extends React.Component {
@@ -21,7 +21,7 @@ class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            list: ['car', 'mobile', 'motorcycles'],
+            list: ['car', 'mobile', 'motorcycles', 'animals', 'houses', 'tv-video-audio'],
             addModalShow: false
         }
     }
@@ -37,19 +37,32 @@ class Header extends React.Component {
         if (result.length == 0) {
             console.log('no data')
         } else {
+            let search1 = result[0]
+            var firstChar = search1.slice(0, 1);
+            var otherChars = search1.slice(1);
+            firstChar = firstChar.toUpperCase();
+            otherChars = otherChars.toLowerCase();
+            search1 = firstChar + otherChars;
             this.setState({
-                result: result[0]
+                result: search1
             })
         }
     }
     handleResult = () => {
         let srch = this.state.result
         if (srch != undefined) {
-            console.log('handel===', this.state.result)
+            this.props.search_key(this.state.result)
+
+            this.setState({
+                result: ''
+            })
         }
     }
 
     render() {
+        // console.log('header props..',this.props)
+        console.log(this.props.search)
+
         let addModalClose = () => this.setState({ addModalShow: false })
         let current_user = this.props.current_user
         return (
@@ -66,8 +79,16 @@ class Header extends React.Component {
                         </div>
                     </div>
                     <div className="col-lg-4 ">
-                        <input placeholder=" Find Car,Mobile & more" onChange={this.search} id="search" type="text" />
-                        <button onClick={this.handleResult}>seach</button>
+                        {/* <input placeholder=" Find Car,Mobile & more" onChange={this.search} id="search" type="text" />
+                        <button onClick={this.handleResult}><Link to='/search'> seach </Link></button> */}
+                        <div className="input-group md-form form-sm form-2 mt-1 pl-0">
+                            <input className="form-control my-0 py-1 red-border" onChange={this.search} type="text" placeholder=" Find Car,Mobile & more" aria-label="Search" />
+                            <Link to='/search'> <div onClick={this.handleResult} className="input-group-append mt-1">
+                                <span className="input-group-text btn py-2 text-light red bg-dark lighten-3" id="basic-text1">
+                                    <i className="fa fa-search text-light" aria-hidden="true" /></span>
+                            </div>
+                            </Link>
+                        </div>
                     </div>
                     <div id="icons" className="col-lg-4 ">
                         {current_user.name ?
@@ -100,11 +121,14 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    current_user: state.current_user
+    current_user: state.current_user,
+    search: state.search_key
 })
 const mapDispatchToProps = (dispatch) => ({
     fb_login: () => dispatch(fb_login()),
-    fb_out: () => dispatch(fb_out())
+    fb_out: () => dispatch(fb_out()),
+    search_key: (data) => dispatch(search_key(data))
+
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

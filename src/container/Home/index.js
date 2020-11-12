@@ -41,7 +41,7 @@ class Home extends React.Component {
     
 
     // let { page   } = this.state
-    // console.log('props==>', this.props.adData)
+  // console.log('props==>', this.props.adData)
     // { this.props.adData && <Link to='/'></Link> }
     // page = this.props.adData[0]
 

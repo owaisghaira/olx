@@ -60,6 +60,12 @@ const set_data = (data) => {
 
     }
 }
+const search_key = (data) => {
+    return (dispatch) => {
+        dispatch({ type: "SEARCHDATA", payload : data })
+        // console.log(data)
+    }
+}
 const addDtail = (data) => {
     return (dispatch) => {
         // console.log(data)
@@ -114,5 +120,6 @@ export {
     addDtail,
     fb_login,
     fb_out,
-    allUsers
+    allUsers,
+    search_key
 }
