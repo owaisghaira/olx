@@ -18,15 +18,16 @@ class Tablets extends React.Component {
         <Linkcomponent />
         <div className='row mt-3'>
           {this.props.adData.map((v, i) => {
-            return v.itemtype === 'Animals' && <div className='col-lg-3  col-md-4'>
-              <Link onClick={() => this.props.addDtail(v)}
-                className='text-decoration-none text-dark' to='/adds_details'>
-                <Adds key={i} price={v.rupees} pic={v.imageurl} detail={v.adtitle} />
-              </Link> 
-            </div>
+            return v.itemtype === 'Animals' &&
+              <div className='col-lg-3  col-md-4'>
+                <Link onClick={() => this.props.addDtail(v)}
+                  className='text-decoration-none text-dark' to='/adds_details'>
+                  <Adds key={i} price={v.rupees} pic={v.imageurl} detail={v.adtitle} />
+                </Link>
+              </div>
           })}
         </div>
-        <Footer/>
+        <Footer />
       </div>
     );
   }
